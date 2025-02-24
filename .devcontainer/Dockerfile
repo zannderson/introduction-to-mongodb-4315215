@@ -14,14 +14,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # Install Go and Go MongoDB drivers
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && curl -OL https://dl.google.com/go/go1.19.linux-amd64.tar.gz \
-    && rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz \
-    && rm go1.19.linux-amd64.tar.gz \
+    && curl -OL https://dl.google.com/go/go1.19.2.linux-amd64.tar.gz \
+    && rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz \
+    && rm go1.19.2.linux-amd64.tar.gz \
     && export GOROOT=/usr/local/go \
     && export GOPATH=/workspace/lessions/5.4 \
     && export PATH=$GOPATH/bin:$GOROOT/bin:$PATH \
     #&& cd /workspaces/introduction-to-mongodb-4315215/lessons/5.4 && go get go.mongodb.org/mongo-driver/mongo \
-    && go install -v golang.org/x/tools/gopls@latest
+    && go install -v golang.org/x/tools/gopls@v0.16.0
 
 #golang-gopkg-mgo.v2-dev
 
